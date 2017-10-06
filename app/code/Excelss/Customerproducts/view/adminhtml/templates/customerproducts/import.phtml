@@ -1,0 +1,54 @@
+<?php
+/**
+ *
+ * @category    ExtCommerce
+ * @package     Extcommerce_Checkdelivery
+ * @copyright   © 2017 ExtCommerce. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ */
+?>
+<div class="import-export-zip-codes">
+    <div class="import-tax-rates">
+        <form id="import-form" class="admin__fieldset" action="<?php /* @escapeNotVerified */ echo $block->getUrl('customerproducts/import/importPost') ?>" method="post" enctype="multipart/form-data">
+            <?php echo $block->getBlockHtml('formkey')?>
+            <div class="fieldset admin__field">
+                <label for="import_csv_file" class="admin__field-label"><span><?php /* @escapeNotVerified */ echo __('Import CSV') ?></span></label>
+                <div class="admin__field-control">
+                    <input type="file" id="import_csv_file" name="import_csv_file" class="input-file required-entry"/>
+                    <?php echo $block->getButtonHtml(__('Import Customer Products'), '', 'import-submit') ?>
+                </div>
+            </div>
+        </form>
+        
+        <script>
+            require(['jquery', "mage/mage", "loadingPopup"], function(jQuery){
+
+            jQuery('#import-form').mage('form').mage('validation');
+            (function ($) {
+                $('.import-submit').click(function(){
+                    if($(':input[name="import_csv_file"]').val()) {
+                        $('body').loadingPopup({
+                            timeout: false
+                        });
+                        $(this.form).submit();
+                    }
+                });
+            })(jQuery);
+
+        });
+        </script>
+    </div>
+    
+    <div class="export-zip-codes box-right">
+        <form id="export_form" class="admin__fieldset" action="<?php /* @escapeNotVerified */ echo $block->getUrl('customerproducts/import/exportPost') ?>" method="post" enctype="multipart/form-data">
+            <?php echo $block->getBlockHtml('formkey')?>
+            <div class="fieldset admin__field">
+                <span class="admin__field-label"><span><?php /* @escapeNotVerified */ echo __('Export CSV') ?></span></span>
+                <div class="admin__field-control">
+                    <?php echo $block->getButtonHtml(__('Export Customer Products'), "this.form.submit()") ?>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

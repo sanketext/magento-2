@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View*/
+$productId = $block->getProduct()->getId();
+?>
+<div class="product-addto-links" data-role="add-to-links">
+    <?php echo $block->getChildHtml(); ?>
+
+    <a href="<?php echo $this->getUrl('customerproducts/quickorder/addproduct', ['productid' => $productId]);?> "
+       data-role="add-to-links"
+       class="action towishlist"><span><?php /* @escapeNotVerified */ echo __('Add to Favorite List') ?></span></a>
+</div>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_account_navigation">
+            <block class="Extcommerce\Btobcusmgmt\Block\Customer\Account\Link" name="btob-link" after="-">
+                <arguments>
+                    <argument name="path" xsi:type="string">btobcusmgmt</argument>
+                    <argument name="label" translate="true" xsi:type="string">Btob management</argument>
+                </arguments>
+            </block>
+            <block class="Extcommerce\Btobcusmgmt\Block\Customer\Account\Link" name="btob-link-myorderlist" after="-">
+                <arguments>
+                    <argument name="path" xsi:type="string">btobcusmgmt</argument>
+                    <argument name="label" translate="true" xsi:type="string">My Orderlist</argument>
+                </arguments>
+            </block>
+            <block class="Extcommerce\Btobcusmgmt\Block\Customer\Account\Link" name="btob-link-orderlistmgmt" after="-">
+                <arguments>
+                    <argument name="path" xsi:type="string">btobcusmgmt</argument>
+                    <argument name="label" translate="true" xsi:type="string">Orderlist Management</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
